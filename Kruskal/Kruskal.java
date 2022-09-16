@@ -9,15 +9,15 @@ public class Kruskal{
   public static void search(int[][] graph, int[] visitedNodes , int total){
 	
 	boolean flag=false;
+	int counter=0;
 
 	for(int node:visitedNodes){
-	  if(node==0){
-		flag =!flag;
-		break;
+	  if(node>1){
+		counter++;
 	  }
 	}
 
-	if(flag==false){
+	if(counter>=(graph.length/2)){
 	  System.out.println("Total weight is: "+total);	
 	  return;
 	}
@@ -38,8 +38,8 @@ public class Kruskal{
 	System.out.println("from "+(minimum[0]+1)+" to "+(minimum[1]+1)+" weight is "+minimum[2]);	
 	graph[minimum[0]][minimum[1]]=0;
 	
-	visitedNodes[minimum[0]]=1;
-	visitedNodes[minimum[1]]=1;
+	visitedNodes[minimum[0]]+=1;
+	visitedNodes[minimum[1]]+=1;
 
 	search(graph, visitedNodes, total);
   }
