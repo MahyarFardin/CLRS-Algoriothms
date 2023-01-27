@@ -4,15 +4,13 @@ public class App {
 
         for (int i = 1; i < a.length; i++) {
             int j = i - 1;
-            int index=i;
+            int key=a[i];
 
-            while (j > -1 && a[index] < a[j]) {
-                int temp = a[index];
-                a[index] = a[j];
-                a[j] = temp;
-                index=j;
+            while (j >-1 && key < a[j]) {
+                a[j+1] = a[j];
                 j--;
             }
+            a[j+1] = key;
         }
 
         for (int i : a) {
