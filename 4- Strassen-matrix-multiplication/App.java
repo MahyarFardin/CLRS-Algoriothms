@@ -97,6 +97,15 @@ public final class App {
         return result;
     }
 
+    public static void printMatrix(int[][] A){
+        for (int i = 0; i < A.length; i++){
+            for (int j = 0; j < A[0].length; j++){
+                System.out.print(A[i][j]+ "  ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         int[][] A = new int[4][4];
         int[][] B = new int[4][4];
@@ -112,27 +121,14 @@ public final class App {
 
         C = multiply(A, B);
 
-        for (int i = 0; i < A.length; i++){
-            for ( int j = 0; j < A[0].length; j++){
-                System.out.print(A[i][j]+ "  ");
-            }
-            System.out.println();
-        }
+        printMatrix(A);
+
         System.out.println("-------------------------------------------");
 
-        for (int i = 0; i < A.length; i++){
-            for ( int j = 0; j < A.length; j++){
-                System.out.print(B[i][j]+ "  ");
-            }
-            System.out.println();
-        }
+        printMatrix(B);
+
         System.out.println("-------------------------------------------");
         
-        for (int i = 0; i < C.length; i++){
-            for (int j = 0; j < C.length; j++){
-                 System.out.print(C[i][j] +"  ");
-            }
-            System.out.println();
-        }
+        printMatrix(C);
     }
 }
