@@ -15,7 +15,7 @@ public class App {
         hashTable.insert(33);
         hashTable.insert(129);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < hashTable.getSize(); i++) {
             if (hashTable.hashtable[i] != null) {
                 System.out.print("index " + i + " : ");
                 System.out.println(hashTable.hashtable[i]);
@@ -27,7 +27,7 @@ public class App {
         hashTable.delete(15);
         hashTable.delete(4);
         hashTable.delete(21);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < hashTable.getSize(); i++) {
             if (hashTable.hashtable[i] != null) {
                 System.out.print("index " + i + " : ");
                 System.out.println(hashTable.hashtable[i]);
