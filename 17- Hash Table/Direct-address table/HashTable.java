@@ -21,8 +21,7 @@ public class HashTable {
             System.out.println("entered!");
         }
     }
-
-    //*
+    
     public String search(int key) {
         if (hashTable[key] == null) {
             System.out.println("not found!");
