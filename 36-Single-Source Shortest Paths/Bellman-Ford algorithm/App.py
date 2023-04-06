@@ -14,13 +14,13 @@ class Bellman:
 
         self.graph.append([u, v, w])
 
-    def print_solution(self, distance):
+    def print(self, distance):
         print("true")
         for k in range(self.V):
             print("{0} ----> {1}".format(k, distance[k]))
 
     def relax(self):
-        for _ in range(self.V - 1):
+        for i in range(self.V - 1):
 
             for u, v, w in self.graph:
 
@@ -37,7 +37,7 @@ class Bellman:
 
                 return
 
-        self.print_solution(self.distance)
+        self.print(self.distance)
 
 
 graph1 = Bellman(4, 0)
