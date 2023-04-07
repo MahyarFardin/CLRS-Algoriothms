@@ -4,15 +4,10 @@ from collections import defaultdict
 class ShortestPath:
 
     def __init__(self, vertices, source):
-
         self.V = vertices
-
         self.graph = defaultdict(list)
-
         self.distance = [float("Inf")] * (self.V)
-
         self.distance[source] = 0
-
         self.source = source
 
     def add_edge(self, u, v, w):
@@ -27,15 +22,15 @@ class ShortestPath:
     def topologicallySort(self, v, visited, verStack):
 
         visited[v] = True
+
         if v in self.graph.keys():
             for node, weight in self.graph[v]:
                 if visited[node] == False:
                     self.topologicallySort(node, visited, verStack)
-
         verStack.append(v)
 
     def shortestPath(self):
-
+        
         visited = [False] * self.V
         verStack = []
 

@@ -2,7 +2,7 @@ package com.company;
 
 
 public class HashTable {
-
+    
     int size;
     Entry[] hashTable;
 
@@ -24,7 +24,7 @@ public class HashTable {
     
     public String search(int key) {
         if (hashTable[key] == null) {
-            System.out.println("not found!");
+            System.out.println("not found! ");
             return null;
         } else return hashTable[key].value;
     }

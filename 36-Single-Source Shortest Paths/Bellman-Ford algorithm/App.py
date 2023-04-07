@@ -1,13 +1,9 @@
 class Bellman:
 
     def __init__(self, vertices, source):
-
         self.V = vertices
-
         self.graph = []
-
         self.distance = [float("Inf")] * self.V
-
         self.distance[source] = 0
 
     def add_edge(self, u, v, w):
@@ -21,22 +17,16 @@ class Bellman:
 
     def relax(self):
         for i in range(self.V - 1):
-
             for u, v, w in self.graph:
-
                 if self.distance[u] != float("Inf") and self.distance[u] + w < self.distance[v]:
                     self.distance[v] = self.distance[u] + w
 
     def bellman_ford(self):
-
         self.relax()
         for u, v, w in self.graph:
-
             if self.distance[u] != float("Inf") and self.distance[u] + w < self.distance[v]:
                 print("false")
-
                 return
-
         self.print(self.distance)
 
 
