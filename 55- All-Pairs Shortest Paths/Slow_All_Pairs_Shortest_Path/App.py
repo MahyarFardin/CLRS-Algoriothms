@@ -2,10 +2,9 @@
 def slow_all_pairs_shortest_path(w):
     n = len(w)
     distance = w
-
+    # Extend shortest path
     for m in range(2, n):
         new_distance = [[float('inf')] * n for _ in range(n)]
-        # Extend shortest path
         for i in range(n):
             for j in range(n):
                 for k in range(n):
