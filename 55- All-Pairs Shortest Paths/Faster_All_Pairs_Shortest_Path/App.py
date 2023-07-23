@@ -1,4 +1,4 @@
-def slow_all_pairs_shortest_path(w):
+def faster_all_pairs_shortest_path(w):
     n = len(w)
     distance = w
     m = 1
@@ -10,6 +10,9 @@ def slow_all_pairs_shortest_path(w):
                 for k in range(n):
                     new_distance[i][j] = min(
                         new_distance[i][j], distance[i][k] + w[k][j])
+        # for row in new_distance :
+        #     print(row)       #show steps
+        # print("----------")
         m *= 2        
         distance = new_distance
 
@@ -25,7 +28,7 @@ w = [
     [float('inf') , float('inf') , float('inf') , 6 , 0]
 ]
 
-result = slow_all_pairs_shortest_path(w)
+result = faster_all_pairs_shortest_path(w)
 
 for row in result:
     print(row)

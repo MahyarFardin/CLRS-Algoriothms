@@ -10,6 +10,9 @@ def slow_all_pairs_shortest_path(w):
                 for k in range(n):
                     new_distance[i][j] = min(
                         new_distance[i][j], distance[i][k] + w[k][j])
+        # for row in new_distance :
+        #    print(row)                #show steps
+        # print("----------")
         distance = new_distance
 
     return distance
