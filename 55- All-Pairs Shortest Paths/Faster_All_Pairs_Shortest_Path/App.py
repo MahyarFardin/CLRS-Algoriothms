@@ -16,7 +16,7 @@ def slow_all_pairs_shortest_path(w):
 
     return distance
 
-#clrs exampl:
+#clrs example:
 w = [
     [0, 3, 8 , float('inf'), -4],
     [float('inf'), 0, float('inf'), 1 , 7],
