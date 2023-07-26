@@ -1,4 +1,4 @@
-def floyd_Warshall(W):
+def floyd_warshall(W):
     n = len(W)
     D = W
 
@@ -22,7 +22,7 @@ w = [
 ]
 
 
-result = floyd_Warshall(w)
+result = floyd_warshall(w)
 
 for row in result:
     print(row)
