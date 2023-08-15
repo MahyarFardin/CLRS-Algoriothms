@@ -1,7 +1,48 @@
 import numpy as np
+import scipy
+
+
+def initialize_simplex(A, b, c):
+    m, n = A.shape
+    k = np.argmin(b)
+    if b[k] >= 0:
+        return np.arange(n), np.arange(n + m), A, b, c, 0
+
+    L_aux = np.hstack((np.zeros((m, 1)), A, np.eye(m)))
+
+    c_aux = np.concatenate(([0], np.zeros(n), np.ones(m)))
+
+    N, B, A, b, c, v = pivot(np.arange(n + m + 1), np.arange(n + m + 1), L_aux, b, c_aux, 0, n + k, 0)
+
+    while any(c[j] < 0 for j in N):
+        e = np.argmin(c[N])
+        # delta = [np.inf for _ in m]
+        delta = np.inf * np.ones(m)
+        for i in B:
+            if A[i][e] > 0:
+                delta[i - n] = b[i] / A[i][e]
+        l = np.argmin(delta)
+        if delta[l] == np.inf:
+            return "infeasible"
+        else:
+            N, B, A, b, c, v = pivot(N, B, A, b, c, v, l, e)
+
+    for j in range(B.shape[0]):
+        if B[j] == n:
+            l = j
+            break
+
+    for i in range(B.shape[0]):
+        if i != l:
+            b[i] = b[i] - A[i][n] * b[l]
+            A[i][n] = 0
+
+    c = c[1:] - c[0] * A[l][1:]
+    return N[1::1], B[1::1], A[::1, 1::1], b, c, v
 
 
 def pivot(N, B, A, b, c, v, l, e):
+
     m, n = A.shape
     A_bar = np.copy(A)
     b_bar = np.copy(b)
@@ -32,43 +73,6 @@ def pivot(N, B, A, b, c, v, l, e):
     return N_bar, B_bar, A_bar, b_bar, c_bar, v_bar
 
 
-def initialize_simplex(A, b, c):
-    m, n = A.shape
-    k = np.argmin(b)
-    if b[k] >= 0:
-        return np.arange(n), np.arange(n + m), A, b, c, 0
-
-    L_aux = np.hstack((np.zeros((m, 1)), A, np.eye(m)))
-    c_aux = np.concatenate(([0], np.zeros(n), np.ones(m)))
-
-    N, B, A, b, c, v = pivot(np.arange(n + m + 1), np.arange(n + m + 1), L_aux, b, c_aux, 0, n + k, 0)
-
-    while any(c[j] < 0 for j in N):
-        e = np.argmin(c[N])
-        delta = np.inf * np.ones(m)
-        for i in B:
-            if A[i][e] > 0:
-                delta[i - n] = b[i] / A[i][e]
-        l = np.argmin(delta)
-        if delta[l] == np.inf:
-            return "infeasible"
-        else:
-            N, B, A, b, c, v = pivot(N, B, A, b, c, v, l, e)
-
-    for j in range(len(B)):
-        if B[j] == n:
-            l = j
-            break
-
-    for i in range(len(B)):
-        if i != l:
-            b[i] = b[i] - A[i][n] * b[l]
-            A[i][n] = 0
-
-    c = c[1:] - c[0] * A[l][1:]
-    return (N[1:], B[1:], A[:, 1:], b, c, v)
-
-
 def simplex(A, b, c):
     m, n = A.shape
     N, B, A, b, c, v = initialize_simplex(A, b, c)
@@ -90,14 +94,22 @@ def simplex(A, b, c):
         if B[i] < n:
             x_bar[B[i]] = b[i]
 
-    return x_bar[:n]
+    return x_bar[:n:1]
 
 
 A = np.array([[2, 1, 1],
               [4, 2, 3],
               [2, 5, 5]])
+
 b = np.array([4, 12, 15])
+
 c = np.array([-3, -2, -4])
 
 result = simplex(A, b, c)
 print("Optimal solution:", result)
+
+scipy_result = scipy.optimize.linprog(c, A_ub=A, b_ub=b,)
+print(scipy_result)
+print("Definitely the result that scipy gives us is much more accurate and reliable than this basic"
+      "implementation for educational purposes")
+
