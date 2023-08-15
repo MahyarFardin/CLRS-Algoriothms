@@ -20,11 +20,11 @@ To set up the repository, follow these steps:
 
 Clone the repository to your local machine using the following command:
 
-    git clone https://github.com/MahyarFardin/CLRS-book-algorithms-.git
+    [git clone https://github.com/MahyarFardin/CLRS-book-algorithms-.git](https://github.com/MahyarFardin/CLRS-Algoriothms)
 
 Change to the cloned directory:
 
-    cd <repository>
+    cd CLRS-Algoriothms
 
 Navigate to the specific algorithm directory you wish to run:
 
