@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5dd1c5d7-e34d-4345-a600-36811119d878" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/42- Matrix-Transpose-inParallel/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/42- Matrix-Transpose-Parallel/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/49- Simplex/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/49- Simplex/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
