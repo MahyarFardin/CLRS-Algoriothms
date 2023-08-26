@@ -8,6 +8,6 @@ def trim(L,e):
     return L_prime
 
 #clrs example 
-input_list = [10, 11, 12, 15, 20, 21, 22, 23, 24, 29] 
-result = trim(input_list,  0.1)
+L = [10, 11, 12, 15, 20, 21, 22, 23, 24, 29] 
+result = trim(L,  0.1)
 print(result)

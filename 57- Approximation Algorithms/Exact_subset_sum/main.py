@@ -1,11 +1,3 @@
-def merge_lists(list1, list2):
-    merged_list = []
-    for num1 in list1:
-        for num2 in list2:
-            merged_list.append(num1 + num2)
-    return merged_list
-
-
 def exact_subset_sum(S, t):
     n = len(S)
     L = [[False] * (t+1) for _ in range(n+1)]
