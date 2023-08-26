@@ -55,6 +55,15 @@ Contributions to this repository are welcome! If you wish to contribute to an al
     6- Submit a pull request to the main repository
 
 Please make sure to include a detailed description of the changes you made and any relevant information for reviewers.
-License
+I would like to thank:
+    
+https://github.com/Amirreza-Afra & https://github.com/AmirMShebly
 
-This repository is licensed under the MIT License. Feel free to use, modify, and distribute the code in this repository for personal or commercial purposes
+https://github.com/AliAbazari & https://github.com/jElhamm
+    
+for their restless efforts on this repository.
+
+**License**
+
+This repository is licensed under the MIT License. Feel free to use, modify, and distribute the code in this repository for personal or commercial purposes.
+*We would appreciate it if you try to make this repo more interesting with your own programming language.*
